@@ -1,15 +1,11 @@
-import sumar from "./sumador";
+import devolvePosisionInicial from "./controladorAutos";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const comando_input = document.querySelector("#comando");
+const form = document.querySelector("#ejecutar-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const posicionInicial = devolvePosisionInicial(comando_input.value)
+  div.innerHTML = "<p>" + posicionInicial + "</p>";
 });
