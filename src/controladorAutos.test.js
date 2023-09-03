@@ -60,4 +60,7 @@ describe("Ejecutar comandos", () => {
   it("Ejecucion del comando 'd' con orientacion al norte y devuelve E con su posicion inicial", () => {
     expect(ejecutarComandos([0, 0],'d')).toEqual([[0, 0], 'E']);
   });
+  it("Ejecucion del comando 'a' con orientacion al norte y avance", () => {
+    expect(ejecutarComandos([0, 0],'a')).toEqual([[0, 1], '']);
+  });
 });

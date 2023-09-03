@@ -70,6 +70,9 @@ function ejecutarComandos(posicion,comandosCadena){
   if(comandosCadena == 'd'){
     orientacion = 'E';
   }
+  if(comandosCadena == 'a'){
+    posicion[1] = posicion[1] + 1;
+  }
   return [posicion, orientacion];
 }
 export {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
