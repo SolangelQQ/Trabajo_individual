@@ -1,6 +1,6 @@
-const formato = /^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/
+const formato_comando = /^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/
 function arregloValidacion(comando){
-  return comando.match(formato);
+  return comando.match(formato_comando);
 }
 function controladorAutito(comando){
   if(comando){
@@ -16,17 +16,20 @@ function validarCadena(comando){
   else return false;
 }
 
+function extraerCoordenadasCoincidencia(arregloDeCoincidencia,indice_x, indice_y){
+  let possicion_x = parseInt(arregloDeCoincidencia[indice_x]);
+  let posicion_y = parseInt(arregloDeCoincidencia[indice_y]);
+  return [possicion_x, posicion_y];
+}
+
 function validarDimension(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
-  let possicion_x = parseInt(arregloDeCoincidencia[1]);
-  let posicion_y = parseInt(arregloDeCoincidencia[3]);
-  return [possicion_x, posicion_y]
+    return extraerCoordenadasCoincidencia(arregloDeCoincidencia, 1, 3);
 }
 
 function validarPosicionInicial(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
-  let possicion_x = parseInt(arregloDeCoincidencia[5]);
-  let possicion_y = parseInt(arregloDeCoincidencia[7]);
-  return [possicion_x, possicion_y];
+    return extraerCoordenadasCoincidencia(arregloDeCoincidencia, 5, 7);
+  
 }
 export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial };
