@@ -1,11 +1,15 @@
-function devolverPosisionInicial(comando){
-  return comando;
+function controladorAutito(comando){
+  if(comando){
+    let esValidoLaCadena = validarCadena(comando);
+    if(!esValidoLaCadena) return "Error de entrada de comando";
+    return true;
+  }
+  else return 'Ingrese una cadena';
 }
-function validarCadena(cadena){
-  let arregloDeCoincidencia = cadena.match(/^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/);
+function validarCadena(comando){
+  let arregloDeCoincidencia = comando.match(/^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/);
   if(arregloDeCoincidencia) return true;
   else return false;
 }
 
-export {devolverPosisionInicial, validarCadena};
-
+export { controladorAutito, validarCadena };
