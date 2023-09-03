@@ -29,7 +29,10 @@ describe("Validar dimension", () => {
 });
 
 describe("Validar posicion inicial", () => {
-  it("Validar la posicion inicial de la cadena '0,0/0,0a/aaa'", () => {
+  it("Validar la posicion inicial de una cadena de entrada '0,0/0,0a/aaa'", () => {
     expect(validarPosicionInicial('0,0/0,0a/aaa')).toEqual([0, 0]);
+  });
+  it("Validar la posicion inicial de cualquier cadena de entrada ", () => {
+    expect(validarPosicionInicial('20,15/17,1a/aaa')).toEqual([17, 1]);
   });
 });

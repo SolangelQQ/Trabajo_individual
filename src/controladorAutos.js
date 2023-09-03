@@ -24,6 +24,9 @@ function validarDimension(comando){
 }
 
 function validarPosicionInicial(comando){
-  return [0, 0];
+  let arregloDeCoincidencia = arregloValidacion(comando);
+  let possicion_x = parseInt(arregloDeCoincidencia[5]);
+  let possicion_y = parseInt(arregloDeCoincidencia[7]);
+  return [possicion_x, possicion_y];
 }
 export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial };
