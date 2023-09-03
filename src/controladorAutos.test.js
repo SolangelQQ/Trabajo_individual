@@ -63,4 +63,7 @@ describe("Ejecutar comandos", () => {
   it("Ejecucion de la orientacion 'n', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
     expect(ejecutarComandos([0, 0],'n','a')).toEqual([[0, 1], 'n']);
   });
+  it("Ejecutar comando/instruccion 'i' con cualquier orientacion", () => {
+    expect(ejecutarComandos([0, 0], 'O', 'I')).toEqual([[0,0], 'S']);
+  });
 });

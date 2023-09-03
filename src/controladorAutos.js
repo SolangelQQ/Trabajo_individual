@@ -63,15 +63,19 @@ function validarComandos(comando){
 }
 
 function ejecutarComandos(posicion,orientacion,comandosCadena){
-  if(comandosCadena == 'i'){
-    orientacion = 'O';
+  if(orientacion == 'n' || orientacion == 'N'){
+    if(comandosCadena == 'i'){
+      orientacion = 'O';
+    }
+    if(comandosCadena == 'd'){
+      orientacion = 'E';
+    }
+    if(comandosCadena == 'a'){
+      posicion[1] = posicion[1] + 1;
+    }
   }
-  if(comandosCadena == 'd'){
-    orientacion = 'E';
-  }
-  if(comandosCadena == 'a'){
-    posicion[1] = posicion[1] + 1;
-  }
+  else 
+      orientacion = 'S';
   return [posicion, orientacion];
 }
 export {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
