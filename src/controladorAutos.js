@@ -62,4 +62,7 @@ function validarComandos(comando){
   return orientacion;
 }
 
-export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos };
+function ejecutarComandos(comandosCadena){
+    return 'O'
+}
+export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };

@@ -1,4 +1,4 @@
-import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos} from "./controladorAutos.js";
+import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos} from "./controladorAutos.js";
 
 describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
@@ -50,5 +50,11 @@ describe("Validar orientacion", () => {
 describe("Controlador Autito", () => {
   it("Devuelve posicion inicial, comandos y posicion final", () => {
   expect(controladorAutito('0,0/0,0N/I')).toEqual('Posicion inicial: 0,0\nComandos: I\nPosicion final: 0,0 N');
+  });
+});
+
+describe("Ejecutar comandos", () => {
+  it("Devuelve la ejecucion del comando 'i' con orientacion al norte", () => {
+  expect(ejecutarComandos('i')).toEqual('O');
   });
 });
