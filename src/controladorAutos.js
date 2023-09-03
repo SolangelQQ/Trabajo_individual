@@ -33,7 +33,9 @@ function validarDimension(comando){
 
 function validarPosicionInicial(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
+  if(arregloDeCoincidencia){
     return extraerCoordenadasCoincidencia(arregloDeCoincidencia, 5, 7);
-  
+  }
+  return "Error de entrada de comando"; 
 }
 export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial };

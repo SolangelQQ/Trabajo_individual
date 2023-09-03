@@ -27,7 +27,7 @@ describe("Validar dimension", () => {
     expect(validarDimension('100,17/0,0a/aaa')).toEqual([100, 17]);
   });
   it("Devuelve un mensaje de error si la dimension es invalida", () => {
-    expect(validarDimension('comandoInvalido')).toEqual('Error de entrada de comando');
+    expect(validarDimension('a/17,3a/aaa')).toEqual('Error de entrada de comando');
   });
 });
 
@@ -37,5 +37,8 @@ describe("Validar posicion inicial", () => {
   });
   it("Validar la posicion inicial de cualquier cadena de entrada ", () => {
     expect(validarPosicionInicial('20,15/17,1a/aaa')).toEqual([17, 1]);
+  });
+  it("Devuelve un mensaje de error si la posicion inicial es invalida", () => {
+    expect(validarPosicionInicial('20,15/a/aaa')).toEqual('Error de entrada de comando');
   });
 });
