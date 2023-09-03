@@ -50,7 +50,12 @@ describe("Validar orientacion", () => {
   it("Devuelve la orientacion de cualquier cadena", () => {
     expect(validarOrientacion('22,5/0,0N/aaa')).toEqual('N');
   });
+});
+describe("Validar orientacion", () => {
   it("Devuelve los comandos/instruciones de la cadena '0,0/0,0a/aaa'", () => {
     expect(validarComandos('0,0/0,0a/aaa')).toEqual('aaa');
   });
+  it("Devuelve los comandos/instruciones de cualquier cadena", () => {
+    expect(validarComandos('11,33/2,4a/add')).toEqual('add');
+  }); 
 });
