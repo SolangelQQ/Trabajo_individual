@@ -1,4 +1,4 @@
-import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion} from "./controladorAutos.js";
+import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos} from "./controladorAutos.js";
 
 describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
@@ -49,5 +49,8 @@ describe("Validar orientacion", () => {
   });
   it("Devuelve la orientacion de cualquier cadena", () => {
     expect(validarOrientacion('22,5/0,0N/aaa')).toEqual('N');
+  });
+  it("Devuelve los comandos/instruciones de la cadena '0,0/0,0a/aaa'", () => {
+    expect(validarComandos('0,0/0,0a/aaa')).toEqual('aaa');
   });
 });
