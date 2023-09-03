@@ -24,7 +24,11 @@ function extraerCoordenadasCoincidencia(arregloDeCoincidencia,indice_x, indice_y
 
 function validarDimension(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
+  if(arregloDeCoincidencia){
     return extraerCoordenadasCoincidencia(arregloDeCoincidencia, 1, 3);
+  }
+  return "Error de entrada de comando";
+
 }
 
 function validarPosicionInicial(comando){

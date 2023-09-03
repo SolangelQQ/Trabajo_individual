@@ -26,6 +26,9 @@ describe("Validar dimension", () => {
   it("Validar dimension de cualquier cadena", () => {
     expect(validarDimension('100,17/0,0a/aaa')).toEqual([100, 17]);
   });
+  it("Devuelve un mensaje de error si la dimension es invalida", () => {
+    expect(validarDimension('comandoInvalido')).toEqual('Error de entrada de comando');
+  });
 });
 
 describe("Validar posicion inicial", () => {
