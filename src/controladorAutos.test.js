@@ -47,4 +47,7 @@ describe("Validar orientacion", () => {
   it("Validar la orientacion de una cadena de entrada '0,0/0,0a/aaa'", () => {
     expect(validarOrientacion('0,0/0,0a/aaa')).toEqual('a');
   });
+  it("Devuelve la orientacion de cualquier cadena", () => {
+    expect(validarOrientacion('22,5/0,0N/aaa')).toEqual('N');
+  });
 });

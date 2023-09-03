@@ -40,7 +40,9 @@ function validarPosicionInicial(comando){
 }
 
 function validarOrientacion(comando){
-  return 'a';
+  let arregloDeCoincidencia = arregloValidacion(comando, formato_comando);
+  let orientacion = arregloDeCoincidencia[8];
+  return orientacion;
 
 }
 export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion };
