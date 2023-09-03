@@ -1,3 +1,4 @@
+const formato = /^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/
 function controladorAutito(comando){
   if(comando){
     let esValidoLaCadena = validarCadena(comando);
@@ -7,7 +8,7 @@ function controladorAutito(comando){
   else return 'Ingrese una cadena';
 }
 function validarCadena(comando){
-  let arregloDeCoincidencia = comando.match(/^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/);
+  let arregloDeCoincidencia = comando.match(formato);
   if(arregloDeCoincidencia) return true;
   else return false;
 }
