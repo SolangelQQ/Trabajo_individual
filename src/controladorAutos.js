@@ -23,4 +23,7 @@ function validarDimension(comando){
   return [possicion_x, posicion_y]
 }
 
-export { controladorAutito, validarCadena, validarDimension };
+function validarPosicionInicial(comando){
+  return [0, 0];
+}
+export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial };

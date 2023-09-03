@@ -6,7 +6,7 @@ const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const dimension_validada = validarDimension(comando_input)
+  const dimension_validada = validarDimension(comando_input.value)
   //const posicionInicial = devolvePosisionInicial(comando_input.value)
   div.innerHTML = "<p>" + dimension_validada+ "</p>";
 });

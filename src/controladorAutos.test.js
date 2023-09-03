@@ -1,4 +1,4 @@
-import {controladorAutito, validarCadena, validarDimension} from "./controladorAutos.js";
+import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial} from "./controladorAutos.js";
 
 describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
@@ -28,3 +28,8 @@ describe("Validar dimension", () => {
   });
 });
 
+describe("Validar posicion inicial", () => {
+  it("Validar la posicion inicial de la cadena '0,0/0,0a/aaa'", () => {
+    expect(validarPosicionInicial('0,0/0,0a/aaa')).toEqual([0, 0]);
+  });
+});
