@@ -62,16 +62,12 @@ function validarComandos(comando){
   return orientacion;
 }
 
-function ejecutarComandos(posicion,comandosCadena){
-  let orientacion = "";
+function ejecutarComandos(posicion,orientacion,comandosCadena){
   if(comandosCadena == 'i'){
     orientacion = 'O';
   }
   if(comandosCadena == 'd'){
     orientacion = 'E';
-  }
-  if(comandosCadena == 'a'){
-    posicion[1] = posicion[1] + 1;
   }
   return [posicion, orientacion];
 }
