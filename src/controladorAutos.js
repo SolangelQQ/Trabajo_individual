@@ -38,4 +38,9 @@ function validarPosicionInicial(comando){
   }
   return "Error de entrada de comando"; 
 }
-export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial };
+
+function validarOrientacion(comando){
+  return 'a';
+
+}
+export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion };

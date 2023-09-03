@@ -1,4 +1,4 @@
-import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial} from "./controladorAutos.js";
+import {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion} from "./controladorAutos.js";
 
 describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
@@ -40,5 +40,11 @@ describe("Validar posicion inicial", () => {
   });
   it("Devuelve un mensaje de error si la posicion inicial es invalida", () => {
     expect(validarPosicionInicial('20,15/a/aaa')).toEqual('Error de entrada de comando');
+  });
+});
+
+describe("Validar orientacion", () => {
+  it("Validar la orientacion de una cadena de entrada '0,0/0,0a/aaa'", () => {
+    expect(validarOrientacion('0,0/0,0a/aaa')).toEqual('a');
   });
 });
