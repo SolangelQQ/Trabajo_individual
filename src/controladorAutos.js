@@ -1,4 +1,7 @@
 const formato = /^(\d*)(\,)(\d*)(\/)(\d*)(\,)(\d*)([a-zA-Z])(\/)([a-zA-z]\D*)$/
+function arregloValidacion(comando){
+  return comando.match(formato);
+}
 function controladorAutito(comando){
   if(comando){
     let esValidoLaCadena = validarCadena(comando);
@@ -8,12 +11,16 @@ function controladorAutito(comando){
   else return 'Ingrese una cadena';
 }
 function validarCadena(comando){
-  let arregloDeCoincidencia = comando.match(formato);
+  let arregloDeCoincidencia = arregloValidacion(comando);
   if(arregloDeCoincidencia) return true;
   else return false;
 }
 
 function validarDimension(comando){
-  return [0, 0];
+  let arregloDeCoincidencia = arregloValidacion(comando);
+  let possicion_x = parseInt(arregloDeCoincidencia[1]);
+  let posicion_y = parseInt(arregloDeCoincidencia[3]);
+  return [possicion_x, posicion_y]
 }
+
 export { controladorAutito, validarCadena, validarDimension };
