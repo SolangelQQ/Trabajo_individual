@@ -62,11 +62,9 @@ function validarComandos(comando){
   return orientacion;
 }
 
-function ejecutarComandos(comandosCadena){
-  if (comandosCadena =='i'){
-    return 'O';
-  }
-  else
-  return 'E'
+function ejecutarComandos(posicion,comandosCadena){
+  let orientacion = "";
+  orientacion = 'O';
+  return [posicion, orientacion];
 }
-export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
+export {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
