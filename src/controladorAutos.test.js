@@ -54,14 +54,13 @@ describe("Controlador Autito", () => {
 });
 
 describe("Ejecutar comandos", () => {
-  
-  // it("Ejecucion del comando 'a' con orientacion al norte y avance", () => {
-  //   expect(ejecutarComandos([0, 0],'a')).toEqual([[0, 1], '']);
-  // });
   it("Ejecutacion de la orientacion 'n', comando 'i' y devuelve O con su posicion inicial", () => {
     expect(ejecutarComandos([0, 0], 'n', 'i')).toEqual([[0, 0], 'O']);
   });
   it("Ejecucion de la orientacion 'N', comando 'd' y devuelve E con su posicion inicial", () => {
     expect(ejecutarComandos([0, 0], 'N','d')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
+    expect(ejecutarComandos([0, 0],'n','a')).toEqual([[0, 1], 'n']);
   });
 });
