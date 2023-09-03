@@ -3,13 +3,24 @@ function arregloValidacion(comando){
   return comando.match(formato_comando);
 }
 function controladorAutito(comando){
+  let salida;
   if(comando){
     let esValidoLaCadena = validarCadena(comando);
-    if(!esValidoLaCadena) return "Error de entrada de comando";
-    return true;
-  }
-  else return 'Ingrese una cadena';
+    if(esValidoLaCadena){
+      let posicion = validarPosicionInicial(comando);
+      let orientacion = validarOrientacion(comando);
+      let comandos = validarComandos(comando);
+      salida = 'Posicion inicial: ' + posicion + '\nComandos: ' + comandos + 
+               '\nPosicion final: ' + posicion + ' ' + orientacion;
+      }
+      else {
+        salida = "Error de entrada de comando";
+      }
+    }
+    else salida ='Ingrese una cadena';
+    return salida;
 }
+
 function validarCadena(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
   if(arregloDeCoincidencia) return true;

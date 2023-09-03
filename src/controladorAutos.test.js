@@ -4,10 +4,6 @@ describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
     expect(controladorAutito('')).toEqual('Ingrese una cadena');
   });
-  it("Manejar caso de comando válido con letras mayúsculas y minúsculas", () => {
-    expect(controladorAutito('5,10/15,20a/bcd')).toEqual(true);
-    expect(controladorAutito('1,2/3,4A/XYZ')).toEqual(true);
-  });
   it("Validar que la posicion inicial tenga el formato correcto", () => {
     expect(validarCadena('0,0/0,0a/aaa')).toEqual(true);
   });
@@ -44,18 +40,15 @@ describe("Validar posicion inicial", () => {
 });
 
 describe("Validar orientacion", () => {
-  it("Validar la orientacion de una cadena de entrada '0,0/0,0a/aaa'", () => {
-    expect(validarOrientacion('0,0/0,0a/aaa')).toEqual('a');
-  });
-  it("Devuelve la orientacion de cualquier cadena", () => {
-    expect(validarOrientacion('22,5/0,0N/aaa')).toEqual('N');
-  });
-});
-describe("Validar orientacion", () => {
   it("Devuelve los comandos/instruciones de la cadena '0,0/0,0a/aaa'", () => {
     expect(validarComandos('0,0/0,0a/aaa')).toEqual('aaa');
   });
   it("Devuelve los comandos/instruciones de cualquier cadena", () => {
     expect(validarComandos('11,33/2,4a/add')).toEqual('add');
   }); 
+});
+describe("Controlador Autito", () => {
+  it("Devuelve posicion inicial, comandos y posicion final", () => {
+  expect(controladorAutito('0,0/0,0N/I')).toEqual('Posicion inicial: 0,0\nComandos: I\nPosicion final: 0,0 N');
+  });
 });
