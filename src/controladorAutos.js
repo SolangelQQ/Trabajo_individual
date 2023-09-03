@@ -63,6 +63,10 @@ function validarComandos(comando){
 }
 
 function ejecutarComandos(comandosCadena){
-    return 'O'
+  if (comandosCadena =='i'){
+    return 'O';
+  }
+  else
+  return 'E'
 }
 export { controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };

@@ -54,7 +54,10 @@ describe("Controlador Autito", () => {
 });
 
 describe("Ejecutar comandos", () => {
-  it("Devuelve la ejecucion del comando 'i' con orientacion al norte", () => {
+  it("Ejecucion del comando 'i' con orientacion al norte y devuelve O", () => {
   expect(ejecutarComandos('i')).toEqual('O');
   });
+  it("Ejecucion del comando 'd' con orientacion al norte y devuelve E", () => {
+    expect(ejecutarComandos('d')).toEqual('E');
+    });
 });
