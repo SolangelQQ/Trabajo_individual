@@ -1,4 +1,4 @@
-import {controladorAutito, validarCadena} from "./controladorAutos.js";
+import {controladorAutito, validarCadena, validarDimension} from "./controladorAutos.js";
 
 describe("Validar cadena", () => {
   it("Mostrar posicion inicial", () => {
@@ -17,4 +17,8 @@ describe("Validar cadena", () => {
   it("Validar comando de entrada y mostrar mensaje de error", () => {
     expect(controladorAutito('0,0/0,0aaaa')).toEqual('Error de entrada de comando');
   });
+  it("Validar dimension de una cadena de dimension [0, 0]", () => {
+    expect(validarDimension('0,0/0,0a/aaa')).toEqual([0, 0]);
+  });
 });
+

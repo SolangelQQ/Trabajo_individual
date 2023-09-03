@@ -13,4 +13,7 @@ function validarCadena(comando){
   else return false;
 }
 
-export { controladorAutito, validarCadena };
+function validarDimension(comando){
+  return [0, 0];
+}
+export { controladorAutito, validarCadena, validarDimension };
