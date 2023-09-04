@@ -71,14 +71,18 @@ function ejecutarComandos(posicion,orientacion,comandosCadena){
   else if(orientacion == 'o' || orientacion == 'O'){
     if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'S';
     if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'N';
-  }
+    if(comandosCadena == 'a'  || comandosCadena == 'A') posicion[0] = posicion[0] - 1;
+   }
+  
   else if(orientacion == 's' || orientacion == 'S'){
     if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'E';
     if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'O';
+    if(comandosCadena == 'a' || comandosCadena == 'A') posicion[1] = posicion[1] - 1;
   }
   else if(orientacion == 'e' || orientacion == 'E'){
        if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'N';
        if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'S';
+       if(comandosCadena == 'a' || comandosCadena == 'A') posicion[0] = posicion[0] + 1;
   }
   else {
     return "Error de entrada de comando"; 
