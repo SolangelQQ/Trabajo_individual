@@ -57,13 +57,125 @@ describe("Ejecutar comandos", () => {
   it("Ejecutacion de la orientacion 'n', comando 'i' y devuelve O con su posicion inicial", () => {
     expect(ejecutarComandos([0, 0], 'n', 'i')).toEqual([[0, 0], 'O']);
   });
+  it("Ejecucion de la orientacion 'n', comando 'I' y devuelve O con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'n', 'I')).toEqual([[0, 0], 'O']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'I' y devuelve O con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'N', 'I')).toEqual([[0, 0], 'O']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'I' y devuelve O con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'N', 'i')).toEqual([[0, 0], 'O']);
+  });
+
   it("Ejecucion de la orientacion 'N', comando 'd' y devuelve E con su posicion inicial", () => {
     expect(ejecutarComandos([0, 0], 'N','d')).toEqual([[0, 0], 'E']);
   });
+  it("Ejecucion de la orientacion 'N', comando 'd' y devuelve E con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'N', 'D')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'D' y devuelve E con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'n', 'D')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'd' y devuelve E con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'n', 'd')).toEqual([[0, 0], 'E']);
+  });
+
   it("Ejecucion de la orientacion 'n', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
     expect(ejecutarComandos([0, 0],'n','a')).toEqual([[0, 1], 'n']);
   });
+  it("Ejecucion de la orientacion 'N', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
+    expect(ejecutarComandos([0, 0],'N','a')).toEqual([[0, 1], 'N']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
+    expect(ejecutarComandos([0, 0],'n','A')).toEqual([[0, 1], 'n']);
+  });
+  it("Ejecucion de la orientacion 'n', comando 'a' y devuelve su avance en la posicion y orientacion", () => {
+    expect(ejecutarComandos([0, 0],'N','A')).toEqual([[0, 1], 'N']);
+  });
+
+
+  it("Ejecutar comando/instruccion 'd' con cualquier orientacion", () => {
+    expect(ejecutarComandos([0, 0], 's', 'D')).toEqual([[0,0], 'O']);
+  });
+  it("Ejecucion de comando 'd' con una orientacion hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 's', 'd')).toEqual([[0,0], 'O']);
+  });
+  it("Ejecucion de comando 'D' con una orientacion hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 'S', 'D')).toEqual([[0,0], 'O']);
+  });
+  it("Ejecucion de comando 'd' con una orientación hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 'S', 'd')).toEqual([[0, 0], 'O']);
+  });
+
+  it("Ejecucion de comando 'i' con una orientación hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 'S', 'i')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de comando 'i' con una orientación hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 'S', 'I')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de comando 'i' con una orientación hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 's', 'i')).toEqual([[0, 0], 'E']);
+  });
+  it("Ejecucion de comando 'i' con una orientación hacia el sur", () => {
+    expect(ejecutarComandos([0, 0], 's', 'I')).toEqual([[0, 0], 'E']);
+  });
+
+
+  it("Ejecucion de comando 'd' con una orientacion hacia el este", () => {
+    expect(ejecutarComandos([0, 0], 'e', 'd')).toEqual([[0,0], 'S']);
+  });
+  it("Ejecucion de comando 'D' con una orientacion hacia el este", () => {
+      expect(ejecutarComandos([0, 0], 'E', 'D')).toEqual([[0,0], 'S']);
+  });
+  it("Ejecucion de comando 'd' con una orientación hacia el este", () => {
+    expect(ejecutarComandos([0, 0], 'E', 'd')).toEqual([[0, 0], 'S']);
+  });
+  it("Ejecucion de comando 'D' con una orientación hacia el este", () => {
+    expect(ejecutarComandos([0, 0], 'e', 'D')).toEqual([[0, 0], 'S']);
+  });
+
+  it("Ejecucion de comando 'i' con una orientación hacia el este", () => {
+    expect(ejecutarComandos([0, 0], 'E', 'i')).toEqual([[0, 0], 'N']);
+  });
+  it("Ejecucion de la orientacion 'e', comando 'i' y devuelve N con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'e', 'i')).toEqual([[0, 0], 'N']);
+  });
+  it("Ejecucion de la orientacion 'e', comando 'I' y devuelve N con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'e', 'I')).toEqual([[0, 0], 'N']);
+  });
+  it("Ejecucion de la orientacion 'E', comando 'I' y devuelve N con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'E', 'I')).toEqual([[0, 0], 'N']);
+  });
+
+
+  it("Ejecucion de un comando 'd' con una orientacion hacia el oeste", () => {
+    expect(ejecutarComandos([0, 0], 'o', 'd')).toEqual([[0,0], 'N']);
+  });
+  it("Ejecucion de un comando 'D' con una orientacion hacia el oeste", () => {
+    expect(ejecutarComandos([0, 0], 'o', 'D')).toEqual([[0,0], 'N']);
+  });
+  it("Ejecucion de comando 'd' con una orientación hacia el oeste", () => {
+    expect(ejecutarComandos([0, 0], 'O', 'd')).toEqual([[0, 0], 'N']);
+  });
+  it("Ejecucion de comando 'D' con una orientación hacia el oeste", () => {
+    expect(ejecutarComandos([0, 0], 'O', 'D')).toEqual([[0, 0], 'N']);
+  });
+
+
   it("Ejecutar comando/instruccion 'i' con cualquier orientacion", () => {
     expect(ejecutarComandos([0, 0], 'O', 'I')).toEqual([[0,0], 'S']);
   });
-});
+  it("Cambiar orientación de 'o' a 'S'", () => {
+    expect(ejecutarComandos([0, 0], 'o', 'i')).toEqual([[0, 0], 'S']);
+  });
+  it("Ejecucion de comando 'i' con una orientación hacia el oeste", () => {
+    expect(ejecutarComandos([0, 0], 'O', 'i')).toEqual([[0, 0], 'S']);
+  });
+  it("Ejecucion de la orientacion 'o', comando 'I' y devuelve S con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'o', 'I')).toEqual([[0, 0], 'S']);
+  });
+  it("Ejecucion de la orientacion 'x', comando 'I' y devuelve S con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'x', 'I')).toEqual("Error de entrada de comando");
+  });
+  
+})  

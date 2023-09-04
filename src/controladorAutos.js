@@ -64,18 +64,27 @@ function validarComandos(comando){
 
 function ejecutarComandos(posicion,orientacion,comandosCadena){
   if(orientacion == 'n' || orientacion == 'N'){
-    if(comandosCadena == 'i'){
-      orientacion = 'O';
-    }
-    if(comandosCadena == 'd'){
-      orientacion = 'E';
-    }
-    if(comandosCadena == 'a'){
-      posicion[1] = posicion[1] + 1;
-    }
+    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'O';
+    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'E';
+    if(comandosCadena == 'a'  || comandosCadena == 'A') posicion[1] = posicion[1] + 1;
   }
-  else 
-      orientacion = 'S';
+  else if(orientacion == 'o' || orientacion == 'O'){
+    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'S';
+    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'N';
+  }
+  else if(orientacion == 's' || orientacion == 'S'){
+    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'E';
+    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'O';
+  }
+  else if(orientacion == 'e' || orientacion == 'E'){
+       if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'N';
+       if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'S';
+  }
+  else {
+    return "Error de entrada de comando"; 
+  }
+
   return [posicion, orientacion];
 }
+
 export {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
