@@ -49,7 +49,7 @@ describe("Validar orientacion", () => {
 });
 describe("Controlador Autito", () => {
   it("Devuelve posicion inicial, comandos y posicion final", () => {
-  expect(controladorAutito('0,0/0,0N/I')).toEqual('Posicion inicial: 0,0\nComandos: I\nPosicion final: 0,0 O');
+  expect(controladorAutito('0,0/0,0N/I')).toEqual('Posicion inicial: 0,0<br>Comandos: I<br>Posicion final: 0,0 O');
   });
   it("Devuelve mensaje de error 'El auto se encuentra fuera del rango'", () => {
       expect(controladorAutito('0,0/0,0o/a')).toEqual('El auto se encuentra fuera del rango');
