@@ -188,7 +188,10 @@ describe("Ejecutar comandos", () => {
     expect(ejecutarComandos([0, 0], 'o', 'I')).toEqual([[0, 0], 'S']);
   });
   it("Ejecucion de la orientacion 'x', comando 'I' y devuelve S con su posicion inicial", () => {
-    expect(ejecutarComandos([0, 0], 'x', 'I')).toEqual("Error de entrada de comando");
+    expect(ejecutarComandos([0, 0], 'x', 'I')).toEqual([[0,0], "Error de entrada de comando"]);
+  });
+  it("Ejecucion de la orientacion 'x', comando 'd' y devuelve N con su posicion inicial", () => {
+    expect(ejecutarComandos([0, 0], 'x', 'd')).toEqual([[0,0], "Error de entrada de comando"]);
   });
 
   it("Ejecucion de comando 'a' con orientacion E", () => {

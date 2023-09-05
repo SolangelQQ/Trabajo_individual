@@ -66,35 +66,73 @@ function validarComandos(comando){
   return orientacion;
 }
 
-function ejecutarComandos(posicion, orientacion, comandosCadena){
-  for (var i = 0; i < comandosCadena.length; i++){
-    if(orientacion == 'n' || orientacion == 'N'){
-      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'O';
-      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'E';
-      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[1] = posicion[1] + 1;
-    }
-    else if(orientacion == 'o' || orientacion == 'O'){
-      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'S';
-      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'N';
-      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[0] = posicion[0] - 1;
-    }
-    else if(orientacion == 's' || orientacion == 'S'){
-      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'E';
-      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'O';
-      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[1] = posicion[1] - 1;
-    }
-    else if(orientacion == 'e' || orientacion == 'E'){
-      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'N';
-      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'S';
-      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[0] = posicion[0] + 1;
-    }
-    else{
-      return "Error de entrada de comando";
-    }
+function izquierda(orientacion){
+  const orientacionDiccionario = {
+    'n': 'O',
+    'N': 'O',
+    'o': 'S',
+    'O': 'S',
+    's': 'E',
+    'S': 'E',
+    'e': 'N',
+    'E': 'N'
+  };
+
+  if (orientacion in orientacionDiccionario) {
+    return orientacionDiccionario[orientacion];
+  } else {
+    return "Error de entrada de comando";
   }
-
-
-  return [posicion, orientacion];
 }
 
+function derecha(orientacion){
+  const orientacionDiccionario = {
+    'n': 'E',
+    'N': 'E',
+    'o': 'N',
+    'O': 'N',
+    's': 'O',
+    'S': 'O',
+    'e': 'S',
+    'E': 'S'
+  };
+
+  if (orientacion in orientacionDiccionario) {
+    return orientacionDiccionario[orientacion];
+  } else {
+    return "Error de entrada de comando";
+  }
+}
+
+function avanzar(orientacion, posicion){
+  const movimientos = {
+    'n': [0, 1],
+    'o': [-1, 0],
+    's': [0, -1],
+    'e': [1, 0],
+    'N': [0, 1],
+    'O': [-1, 0],
+    'S': [0, -1],
+    'E': [1, 0],
+  };
+
+  const movimiento = movimientos[orientacion];
+
+  if (movimiento) {
+    posicion[0] += movimiento[0];
+    posicion[1] += movimiento[1];
+  }
+
+  return posicion;
+}
+
+function ejecutarComandos(posicion, orientacion, comandosCadena){
+  for (var i = 0; i < comandosCadena.length; i++){
+    if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = izquierda(orientacion);
+    if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = derecha(orientacion);
+    if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion = avanzar(orientacion, posicion);
+  }
+  return [posicion, orientacion];
+}
+  
 export {controladorAutito, validarCadena, validarDimension, validarPosicionInicial, validarOrientacion, validarComandos, ejecutarComandos };
