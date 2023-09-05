@@ -32,29 +32,24 @@ function validarCadena(comando){
   else return false;
 }
 
-// function extraerCoordenadasCoincidencia(arregloDeCoincidencia,indice_x, indice_y){
-//   let posicion_x = parseInt(arregloDeCoincidencia[indice_x]);
-//   let posicion_y = parseInt(arregloDeCoincidencia[indice_y]);
-//   return [posicion_x, posicion_y];
-// }
+function extraerCoordenadasCoincidencia(arregloDeCoincidencia,indice_x, indice_y){
+  let posicion_x = parseInt(arregloDeCoincidencia[indice_x]);
+  let posicion_y = parseInt(arregloDeCoincidencia[indice_y]);
+  return [posicion_x, posicion_y];
+}
 
 function validarDimension(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
   if(arregloDeCoincidencia){
-    let posicion_x = parseInt(arregloDeCoincidencia[1]);
-    let posicion_y = parseInt(arregloDeCoincidencia[3]);
-    return [posicion_x, posicion_y];
+    return extraerCoordenadasCoincidencia(arregloDeCoincidencia,1, 3);
   }
   return "Error de entrada de comando";
-
 }
 
 function validarPosicionInicial(comando){
   let arregloDeCoincidencia = arregloValidacion(comando);
   if(arregloDeCoincidencia){
-    let posicion_x = parseInt(arregloDeCoincidencia[5]);
-    let posicion_y = parseInt(arregloDeCoincidencia[7]);
-    return [posicion_x, posicion_y];
+    return extraerCoordenadasCoincidencia(arregloDeCoincidencia,5,7);
   }
   return "Error de entrada de comando"; 
 }
@@ -71,31 +66,33 @@ function validarComandos(comando){
   return orientacion;
 }
 
-function ejecutarComandos(posicion,orientacion,comandosCadena){
-  if(orientacion == 'n' || orientacion == 'N'){
-    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'O';
-    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'E';
-    if(comandosCadena == 'a'  || comandosCadena == 'A') posicion[1] = posicion[1] + 1;
+function ejecutarComandos(posicion, orientacion, comandosCadena){
+  for (var i = 0; i < comandosCadena.length; i++){
+    if(orientacion == 'n' || orientacion == 'N'){
+      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'O';
+      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'E';
+      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[1] = posicion[1] + 1;
+    }
+    else if(orientacion == 'o' || orientacion == 'O'){
+      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'S';
+      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'N';
+      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[0] = posicion[0] - 1;
+    }
+    else if(orientacion == 's' || orientacion == 'S'){
+      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'E';
+      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'O';
+      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[1] = posicion[1] - 1;
+    }
+    else if(orientacion == 'e' || orientacion == 'E'){
+      if(comandosCadena[i] == 'i' || comandosCadena[i] == 'I') orientacion = 'N';
+      if(comandosCadena[i] == 'd' || comandosCadena[i] == 'D') orientacion = 'S';
+      if(comandosCadena[i] == 'a'  || comandosCadena[i] == 'A') posicion[0] = posicion[0] + 1;
+    }
+    else{
+      return "Error de entrada de comando";
+    }
   }
-  else if(orientacion == 'o' || orientacion == 'O'){
-    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'S';
-    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'N';
-    if(comandosCadena == 'a'  || comandosCadena == 'A') posicion[0] = posicion[0] - 1;
-   }
-  
-  else if(orientacion == 's' || orientacion == 'S'){
-    if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'E';
-    if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'O';
-    if(comandosCadena == 'a' || comandosCadena == 'A') posicion[1] = posicion[1] - 1;
-  }
-  else if(orientacion == 'e' || orientacion == 'E'){
-       if(comandosCadena == 'i' || comandosCadena == 'I') orientacion = 'N';
-       if(comandosCadena == 'd' || comandosCadena == 'D') orientacion = 'S';
-       if(comandosCadena == 'a' || comandosCadena == 'A') posicion[0] = posicion[0] + 1;
-  }
-  else {
-    return "Error de entrada de comando"; 
-  }
+
 
   return [posicion, orientacion];
 }

@@ -230,5 +230,8 @@ describe("Ejecutar comandos", () => {
   it("Ejecucion de comando 'a' con orientacion S", () => {
     expect(ejecutarComandos([0, 0], 'S', 'a')).toEqual([[0,-1], 'S']);
   });
+  it("Ejecucion de n comandos", () => {
+    expect(ejecutarComandos([0, 0], 'E', 'Aaaa')).toEqual([[4,0], 'E']);
+});
 
 })  
