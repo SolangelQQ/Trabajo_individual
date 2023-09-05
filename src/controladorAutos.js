@@ -104,25 +104,22 @@ function derecha(orientacion){
   }
 }
 
-function avanzar(orientacion, posicion){
-  const movimientos = {
+function avanzar(orientacion, posicion) {
+
+  const cambiosPosicion = {
     'n': [0, 1],
-    'o': [-1, 0],
-    's': [0, -1],
-    'e': [1, 0],
     'N': [0, 1],
+    'o': [-1, 0],
     'O': [-1, 0],
+    's': [0, -1],
     'S': [0, -1],
-    'E': [1, 0],
+    'e': [1, 0],
+    'E': [1, 0]
   };
 
-  const movimiento = movimientos[orientacion];
-
-  if (movimiento) {
-    posicion[0] += movimiento[0];
-    posicion[1] += movimiento[1];
-  }
-
+  const cambio = cambiosPosicion[orientacion];
+  posicion[0] += cambio[0];
+  posicion[1] += cambio[1];
   return posicion;
 }
 
